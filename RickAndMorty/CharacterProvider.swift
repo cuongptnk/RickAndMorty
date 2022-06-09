@@ -9,7 +9,7 @@ import Foundation
 import DataLayer
 
 protocol CharactersProviderInterface {
-    func fetchCharacters() async
+    func fetchCharacters() async -> Result<[Character], NetworkError>
 }
 
 public class CharactersProvider: CharactersProviderInterface {
@@ -19,7 +19,7 @@ public class CharactersProvider: CharactersProviderInterface {
         self.apiProvider = DataService.shared
     }
     
-    func fetchCharacters() async {
+    func fetchCharacters() async -> Result<[Character], NetworkError>{
         return await apiProvider.fetchCharacters()
     }
 }
