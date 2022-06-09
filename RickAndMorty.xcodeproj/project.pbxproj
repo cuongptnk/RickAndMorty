@@ -11,6 +11,7 @@
 		11F955A528522AC4009A60CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F955A428522AC4009A60CD /* ContentView.swift */; };
 		11F955A728522AC7009A60CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F955A628522AC7009A60CD /* Assets.xcassets */; };
 		11F955AA28522AC7009A60CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F955A928522AC7009A60CD /* Preview Assets.xcassets */; };
+		11F955B228523A05009A60CD /* CharacterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F955B128523A05009A60CD /* CharacterProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		11F955A428522AC4009A60CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11F955A628522AC7009A60CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11F955A928522AC7009A60CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11F955B128523A05009A60CD /* CharacterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterProvider.swift; sourceTree = "<group>"; };
+		11F955D728523E04009A60CD /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DataLayer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 		11F9559628522AC4009A60CD = {
 			isa = PBXGroup;
 			children = (
+				11F955D728523E04009A60CD /* DataLayer */,
 				11F955A128522AC4009A60CD /* RickAndMorty */,
 				11F955A028522AC4009A60CD /* Products */,
 			);
@@ -55,6 +59,7 @@
 				11F955A428522AC4009A60CD /* ContentView.swift */,
 				11F955A628522AC7009A60CD /* Assets.xcassets */,
 				11F955A828522AC7009A60CD /* Preview Content */,
+				11F955B128523A05009A60CD /* CharacterProvider.swift */,
 			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11F955A528522AC4009A60CD /* ContentView.swift in Sources */,
+				11F955B228523A05009A60CD /* CharacterProvider.swift in Sources */,
 				11F955A328522AC4009A60CD /* RickAndMortyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

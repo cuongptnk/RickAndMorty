@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    let charactersProvider: CharactersProviderInterface
+    
     var body: some View {
         Text("Hello, world!")
-            .padding()
+            .padding().onAppear {
+                Task {
+                    await charactersProvider.fetchCharacters()
+                }
+            }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(charactersProvider: CharactersProvider())
     }
 }
