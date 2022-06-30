@@ -6,22 +6,52 @@
 //
 
 import SwiftUI
+import DataLayer
 
 struct ContentView: View {
-    let charactersProvider: CharactersProviderInterface
+    @StateObject var viewModel: CharacterListViewModel
+
     
     var body: some View {
-        Text("Hello, world!")
-            .padding().onAppear {
-                Task {
-                    await charactersProvider.fetchCharacters()
-                }
-            }
+        NavigationView {
+            List {
+                ForEach(viewModel.characterList, id: \.self, content: {
+                    character in
+                    NavigationLink(destination: DetailsView(
+                        name: character.name,
+                        status: character.status,
+                        species: character.species,
+                        gender: character.gender,
+                        image: character.image.absoluteString)) {
+                        HStack {
+                            AsyncImage(url: URL(string: character.image.absoluteString)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: 44, height: 44)
+                                .background(Color.gray)
+                                .clipShape(Circle())
+                            
+
+                            
+                            Text(character.name)
+                            
+                        }
+                    }
+                })
+            }.listStyle(GroupedListStyle())
+                .navigationTitle("Home")
+        }.task {
+            await viewModel.getCharacters()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(charactersProvider: CharactersProvider())
+        ContentView(viewModel: CharacterListViewModel(characterProvider: CharactersProvider()))
     }
 }

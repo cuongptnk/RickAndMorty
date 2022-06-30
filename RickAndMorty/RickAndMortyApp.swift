@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import DataLayer
 
 @main
 struct RickAndMortyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(charactersProvider: CharactersProvider())
+            ContentView(viewModel: CharacterListViewModel(characterProvider: CharactersProvider()))
         }
     }
 }

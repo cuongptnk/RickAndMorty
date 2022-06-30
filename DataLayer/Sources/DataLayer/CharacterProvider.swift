@@ -6,20 +6,21 @@
 //
 
 import Foundation
-import DataLayer
 
-protocol CharactersProviderInterface {
+public protocol CharactersProviderInterface {
     func fetchCharacters() async -> Result<[Character], NetworkError>
 }
 
 public class CharactersProvider: CharactersProviderInterface {
     private let apiProvider: APIProviderInterface
     
-    init() {
-        self.apiProvider = DataService.shared
+    public init(apiProvider: APIProviderInterface = DataService.shared) {
+        self.apiProvider = apiProvider
     }
     
-    func fetchCharacters() async -> Result<[Character], NetworkError>{
+    // TODO: write a test for this by write a Mock
+    // one for happy path and one for fail path
+    public func fetchCharacters() async -> Result<[Character], NetworkError>{
         return await apiProvider.fetchCharacters()
     }
 }
